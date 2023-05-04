@@ -2,6 +2,8 @@ package com.gnapse.jenny.baseproject;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import androidx.annotation.Nullable;
 import com.gnapse.jenny.baseproject.databinding.ActivityMainBinding;
 
@@ -9,7 +11,9 @@ public class MainActivity extends BaseActivity<BaseViewModel, ActivityMainBindin
 
     private static final String TAG = MainActivity.class.getSimpleName();
     MainFragment mainFragment;
-
+    ListFragment listFragment;
+    Button button1;
+    Button button2;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +30,22 @@ public class MainActivity extends BaseActivity<BaseViewModel, ActivityMainBindin
     public void initViews() {
         mainFragment = new MainFragment();
         replaceFragment(mainFragment, mBinding.container.getId());
+
+        listFragment = new ListFragment();
+
+        mBinding.button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                replaceFragment(mainFragment, mBinding.container.getId());
+            }
+        });
+
+        mBinding.button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                replaceFragment(listFragment, mBinding.container.getId());
+            }
+        });
     }
 
     @Override

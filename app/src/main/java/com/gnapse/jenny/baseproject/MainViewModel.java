@@ -7,6 +7,9 @@ import androidx.lifecycle.MutableLiveData;
 public class MainViewModel extends BaseViewModel{
 
     private MutableLiveData<String> currentName;
+    private MutableLiveData<Boolean> button1Clicked;
+    private MutableLiveData<Boolean> button2Clicked;
+
 
     public MutableLiveData<String> getCurrentName() {
         if(currentName == null) {
@@ -14,6 +17,15 @@ public class MainViewModel extends BaseViewModel{
         }
         return currentName;
     }
+
+    public MutableLiveData<Boolean> getButton1Clicked() {
+        return button1Clicked;
+    }
+
+    public void setButton1Clicked(MutableLiveData<Boolean> button1Clicked) {
+        this.button1Clicked = button1Clicked;
+    }
+
     public MainViewModel(@NonNull Application application) {
         super(application);
     }
