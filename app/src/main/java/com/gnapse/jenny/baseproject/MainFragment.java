@@ -23,7 +23,8 @@ public class MainFragment extends BaseFragment<MainViewModel, FragmentMainBindin
 
     @Override
     public MainViewModel getViewModel() {
-        return ViewModelFactory.getInstance(getActivity().getApplication()).create(MainViewModel.class);
+        return ViewModelFactory.getInstance(getActivity().getApplication())
+                .create(MainViewModel.class);
     }
 
     @Override
@@ -33,6 +34,7 @@ public class MainFragment extends BaseFragment<MainViewModel, FragmentMainBindin
 
     @Override
     public void onChanged(Object o) {
-
+        String data  = (String) o;
+        mBinding.textView.setText(data);
     }
 }

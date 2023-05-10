@@ -28,6 +28,8 @@ public class ViewModelFactory implements ViewModelProvider.Factory {
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
         if(modelClass == MainViewModel.class) {
             return (T) new MainViewModel(mApplication);
+        } else if(modelClass == ListViewModel.class) {
+            return (T) new ListViewModel(mApplication);
         }
         return null;
     }
